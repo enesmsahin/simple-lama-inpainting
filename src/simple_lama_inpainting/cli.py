@@ -28,7 +28,7 @@ def main(image_path, mask_path, out_path=None):
     if out_path is None:
         out_path = image_path.with_stem(image_path.stem + "_out")
     
-    Path.mkdir(out_path.parent, exist_ok=True, parents=True)
+    Path.mkdir(Path(out_path).parent, exist_ok=True, parents=True)
     result.save(out_path)
     print(f"Inpainted image is saved to {out_path}")
 
