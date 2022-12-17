@@ -1,0 +1,1 @@
+from simple_lama_inpainting.models.model import SimpleLama
