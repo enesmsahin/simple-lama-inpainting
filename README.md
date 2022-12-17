@@ -19,7 +19,7 @@ simple_lama <path_to_input_image> <path_to_mask_image> <path_to_output_image>
 ### Integration to Your Code
 Input formats: `np.ndarray` or `PIL.Image.Image`. (3 channel input image & 1 channel binary mask image where pixels with 255 will be inpainted). \
 Output format: `PIL.Image.Image`
-```
+```python
 from simple_lama_inpainting import SimpleLama
 from PIL import Image
 
