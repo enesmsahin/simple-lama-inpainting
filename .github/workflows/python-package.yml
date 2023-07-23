@@ -61,9 +61,7 @@ jobs:
     - name: Lint with flake8
       run: |
         # stop the build if there are Python syntax errors or undefined names
-        poetry run flake8 .
-        # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
-        poetry run flake8 .
+        poetry run flake8 -vv .
     - name: Test with pytest
       run: |
         poetry run pytest
