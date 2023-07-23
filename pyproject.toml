@@ -1,3 +1,32 @@
+[tool.poetry]
+name = "simple-lama-inpainting"
+version = "0.1.1"
+description = ""
+authors = ["enesmsahin <enessahin@outlook.com>"]
+readme = "README.md"
+packages = [{include = "simple_lama_inpainting"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+numpy = "^1.25.1"
+opencv-python = "^4.8.0.74"
+pillow = "^10.0.0"
+torch = ">=1.13.1, !=2.0.1"
+torchvision = ">=0.14.1"
+fire = "^0.5.0"
+
+[tool.poetry.scripts]
+simple_lama = "simple_lama_inpainting.cli:lama_cli"
+
+[tool.poetry.group.test.dependencies]
+pytest = "^7.4.0"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.0"
+flake8 = "^6.0.0"
+black = "^23.7.0"
+
 [build-system]
-requires = ['setuptools>=42']
-build-backend = 'setuptools.build_meta'
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
