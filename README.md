@@ -2,7 +2,7 @@
 
 <div align="center">
 Simple pip package for LaMa[1] inpainting.<br>
-<a href="https://badge.fury.io/py/simple-lama-inpainting"><img src="https://badge.fury.io/py/simple-lama-inpainting.svg" alt="PyPI version" height="18"></a>
+<a href="https://badge.fury.io/py/simple-lama-inpainting"><img src="https://badge.fury.io/py/simple-lama-inpainting.svgs" alt="PyPI version" height="18"></a>
 </div>
 
 ## Installation
