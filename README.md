@@ -29,7 +29,7 @@ img_path = "image.png"
 mask_path = "mask.png"
 
 image = Image.open(img_path)
-mask = Image.open(mask_path)
+mask = Image.open(mask_path).convert('L')
 
 result = simple_lama(image, mask)
 result.save("inpainted.png")
