@@ -9,13 +9,16 @@ from urllib.parse import urlparse
 
 
 # Source https://github.com/advimman/lama
-def get_image(image):
+def get_image(image,mask=True):
     if isinstance(image, Image.Image):
         img = np.array(image)
     elif isinstance(image, np.ndarray):
         img = image.copy()
     else:
         raise Exception("Input image should be either PIL Image or numpy array!")
+
+    if mask and img.ndim != 1:
+      img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
     if img.ndim == 3:
         img = np.transpose(img, (2, 0, 1))  # chw
@@ -62,7 +65,7 @@ def pad_img_to_modulo(img, mod):
 
 def prepare_img_and_mask(image, mask, device, pad_out_to_modulo=8, scale_factor=None):
     out_image = get_image(image)
-    out_mask = get_image(mask)
+    out_mask = get_image(mask,mask=True)
 
     if scale_factor is not None:
         out_image = scale_image(out_image, scale_factor)
