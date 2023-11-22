@@ -9,7 +9,7 @@ from urllib.parse import urlparse
 
 
 # Source https://github.com/advimman/lama
-def get_image(image,mask=True):
+def get_image(image,mask=False):
     if isinstance(image, Image.Image):
         img = np.array(image)
     elif isinstance(image, np.ndarray):
