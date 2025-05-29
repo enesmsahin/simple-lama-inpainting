@@ -1,32 +1,42 @@
-[tool.poetry]
+[project]
 name = "simple-lama-inpainting"
-version = "0.1.2"
-description = ""
-authors = ["enesmsahin <enessahin@outlook.com>"]
+version = "0.1.3"
+description = "A simple and user friendly package for inpainting images using LaMa model."
+authors = [{ name = "enesmsahin", email = "enessahin@outlook.com" }]
+requires-python = "~=3.10"
 readme = "README.md"
-packages = [{include = "simple_lama_inpainting"}]
+dependencies = [
+    "numpy>=1.24.3",
+    "opencv-python>=4.8.0.74",
+    "pillow>=9.5.0",
+    "torch>=1.13.1, !=2.0.1",
+    "torchvision>=0.14.1",
+    "fire>=0.5.0",
+]
 
-[tool.poetry.dependencies]
-python = "^3.10"
-numpy = "^1.24.3"
-opencv-python = "^4.8.0.74"
-pillow = "^9.5.0"
-torch = ">=1.13.1, !=2.0.1"
-torchvision = ">=0.14.1"
-fire = "^0.5.0"
-
-[tool.poetry.scripts]
+[project.scripts]
 simple_lama = "simple_lama_inpainting.cli:lama_cli"
 
-[tool.poetry.group.test.dependencies]
-pytest = "^7.4.0"
+[dependency-groups]
+test = ["pytest>=7.4.0"]
+dev = [
+    "pytest>=7.4.0",
+    "flake8>=6.0.0",
+    "black>=23.7.0",
+]
 
+[tool.uv]
+default-groups = [
+    "test",
+    "dev",
+]
 
-[tool.poetry.group.dev.dependencies]
-pytest = "^7.4.0"
-flake8 = "^6.0.0"
-black = "^23.7.0"
+[tool.hatch.build.targets.sdist]
+include = ["simple_lama_inpainting"]
+
+[tool.hatch.build.targets.wheel]
+include = ["simple_lama_inpainting"]
 
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
